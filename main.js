@@ -65,37 +65,35 @@ function fetchIssues() {
 
     }
 
+}
 
-    // Set status to close on button click
-    function setStatusClosed(id) {
-        var issues = JSON.parse(localStorage.getItem('issues'));
+// Set status to close on button click
+function setStatusClosed(id) {
+    var issues = JSON.parse(localStorage.getItem('issues'));
 
-        for(var i = 0; i < issues.length; i++) {
-            if (issues[i].id == id) {
-                issues[id].status = "Closed";
-            }
+    for(var i = 0; i < issues.length; i++) {
+        if (issues[i].id == id) {
+            issues[id].status = "Closed";
         }
-
-        localStorage.setItem('issues', JSON.stringify(issues));
-
-        fetchIssues();
     }
 
+    localStorage.setItem('issues', JSON.stringify(issues));
 
-    // Delete issue on button click
-    function deleteIssue(id) {
-        var issues = JSON.parse(localStorage.getItem('issues'));
+    fetchIssues();
+}
 
-        for(var i =0; i < issues.length; i++) {
-            if (issues[i].id == id) {
-                issues.splice(i, 1);
-            }
+
+// Delete issue on button click
+function deleteIssue(id) {
+    var issues = JSON.parse(localStorage.getItem('issues'));
+
+    for(var i =0; i < issues.length; i++) {
+        if (issues[i].id == id) {
+            issues.splice(i, 1);
         }
-
-        localStorage.setItem('issues', JSON.stringify(issues));
-
-        fetchIssues();
     }
 
+    localStorage.setItem('issues', JSON.stringify(issues));
 
+    fetchIssues();
 }
